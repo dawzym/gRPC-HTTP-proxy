@@ -1,0 +1,66 @@
+{
+    "Architectures": [ "x86_64" ],
+    "Code": { 
+       "ImageUri": "123456789012.dkr.ecr.us-east-1.amazonaws.com/my-container-image",
+       "S3Bucket": "my-s3-bucket",
+       "S3Key": "my-function-code.zip",
+       "S3ObjectVersion": "1.0",
+       "ZipFile": "UEsDBBQAAAAIAEqXmU/x7D9pAAAA..."
+    },
+    "CodeSigningConfigArn": "arn:aws:lambda:us-east-1:123456789012:code-signing-config/my-code-signing-config",
+    "DeadLetterConfig": { 
+       "TargetArn": "arn:aws:sqs:us-east-1:123456789012:my-queue"
+    },
+    "Description": "My Lambda Function",
+    "Environment": { 
+       "Variables": { 
+          "key1": "value1",
+          "key2": "value2"
+       }
+    },
+    "EphemeralStorage": { 
+       "Size": 512
+    },
+    "FileSystemConfigs": [ 
+       { 
+          "Arn": "arn:aws:efs:us-east-1:123456789012:file-system/fs-01234567",
+          "LocalMountPath": "/mnt/my-efs"
+       }
+    ],
+    "FunctionName": "MyLambdaFunction",
+    "Handler": "index.handler",
+    "ImageConfig": { 
+       "Command": [ "my-command" ],
+       "EntryPoint": [ "entry-point.sh" ],
+       "WorkingDirectory": "/var/task"
+    },
+    "KMSKeyArn": "arn:aws:kms:us-east-1:123456789012:key/my-kms-key",
+    "Layers": [ "arn:aws:lambda:us-east-1:123456789012:layer:my-layer:1" ],
+    "LoggingConfig": { 
+       "ApplicationLogLevel": "INFO",
+       "LogFormat": "json",
+       "LogGroup": "/aws/lambda/MyLambdaFunction",
+       "SystemLogLevel": "ERROR"
+    },
+    "MemorySize": 256,
+    "PackageType": "Image",
+    "Publish": true,
+    "Role": "arn:aws:iam::123456789012:role/service-role/MyLambdaRole",
+    "Runtime": "python3.8",
+    "SnapStart": { 
+       "ApplyOn": "initialization"
+    },
+    "Tags": { 
+       "Environment": "Production"
+    },
+    "Timeout": 30,
+    "TracingConfig": { 
+       "Mode": "Active"
+    },
+    "VpcConfig": { 
+       "Ipv6AllowedForDualStack": true,
+       "SecurityGroupIds": [ "sg-0123456789abcdef0" ],
+       "SubnetIds": [ "subnet-0123456789abcdef0", "subnet-0123456789abcdef1" ]
+    }
+ }
+ 
